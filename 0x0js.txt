@@ -1,0 +1,39 @@
+// Function to perform decryption in JavaScript
+function decrypt(content) {
+  const words = content.split(' ');
+  const decryptedWords = [];
+
+  for (const word of words) {
+    const prefix = word.slice(0, 2);
+    const wordWithoutPrefix = word.slice(2);
+    const middle = Math.floor(wordWithoutPrefix.length / 2);
+    const decryptedWord =
+      wordWithoutPrefix.slice(middle) + wordWithoutPrefix.slice(0, middle);
+    decryptedWords.push(decryptedWord);
+  }
+
+  return decryptedWords.join(' ');
+}
+
+// Your data array (assuming it's already loaded)
+const data = [
+  {
+    title: 'Title 1',
+    content: 'Encrypted Content 1',
+  },
+  {
+    title: 'Title 2',
+    content: 'Encrypted Content 2',
+  },
+  // Add more data entries here
+];
+
+// Decrypt content for each entry in the data array
+for (const entry of data) {
+  if (entry.content) {
+    entry.content = decrypt(entry.content);
+  }
+}
+
+// Now, your data array contains decrypted content
+console.log(data);

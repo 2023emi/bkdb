@@ -1,0 +1,23 @@
+// Function to perform decryption
+function decrypt(content) {
+  const words = content.split(' ');
+  const decryptedWords = [];
+  for (const word of words) {
+    const prefix = word.slice(0, 2);
+    const wordWithoutPrefix = word.slice(2);
+    const middle = Math.floor(wordWithoutPrefix.length / 2);
+    const decryptedWord =
+      wordWithoutPrefix.slice(middle) + wordWithoutPrefix.slice(0, middle);
+    decryptedWords.push(decryptedWord);
+  }
+  return decryptedWords.join(' ');
+}
+
+
+
+& 
+for entry in data:
+    if 'content' in entry:
+        entry['content'] = decrypt(entry['content']) in js 
+
+
